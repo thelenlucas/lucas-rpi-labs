@@ -26,14 +26,14 @@ _start:
     ldrb r3, [r1] @ Load the first byte of the input into r3
     sub r3, r3, #'0' @ I'm a bit proud of this
     mov r5, #10 @ Load 10 into r4
-    mul r3, r3, r5 @ First digit up by 10
+    mul r6, r3, r5 @ First digit up by 10
     cmp r0, #2 @ If the input is 2 characters long
     blt finish @ If r0 < 2, then the input is 1 character long, and we're done here
 
     ldrb r4, [r1, #1] @ Load the second byte of the input into r4
     sub r4, r4, #'0' @ once again
-    mul r3, r3, r5 @ Second digit up by 10
-    add r3, r3, r4 @ Add the two digits together
+    mul r7, r3, r5 @ Second digit up by 10
+    add r3, r6, r7 @ Add the two digits together
 
 finish:
     @ Congrats, you read the integer! Now print it out
